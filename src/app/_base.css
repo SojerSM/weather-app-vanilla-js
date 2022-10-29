@@ -1,3 +1,12 @@
+:root {
+  --searchbox-width: 90vh;
+  --app-container-height: 75vh;
+  --app-container-width: 150vh;
+  --app-container-padding: 1.5rem;
+  --searchbox-text-color: rgb(255, 255, 255);
+  --searchbox-input-text-color: rgba(0, 0, 0, 0.5);
+}
+
 * {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -8,7 +17,7 @@
 }
 
 body {
-  background-image: url("../assets/background-04.jpg");
+  background-image: url("../assets/background-05.jpg");
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -16,8 +25,24 @@ body {
 }
 
 .app-window {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(50px);
 
   min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  border-radius: 30px;
+
+  background-color: white;
+  width: var(--app-container-width);
+  height: var(--app-container-height);
+
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.25);
 }

@@ -1,0 +1,104 @@
+.app-wrapper-searchbox {
+  position: relative;
+  background-image: url("../../assets/background-05.jpg");
+  background-size: cover;
+
+  width: var(--searchbox-width);
+  min-height: 100%;
+  border-radius: 30px;
+  padding: var(--app-container-padding);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbox-header {
+  position: absolute;
+  top: var(--app-container-padding);
+  left: var(--app-container-padding);
+  min-width: 90%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-title {
+  color: var(--searchbox-text-color);
+  text-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.75);
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.searchbox-location-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+}
+
+#location-icon {
+  max-height: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.location-title {
+  color: var(--searchbox-text-color);
+
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.current-location {
+  color: var(--searchbox-text-color);
+  font-size: 1.1rem;
+}
+
+.searchbox-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchbox-content-description {
+  color: var(--searchbox-text-color);
+  text-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.75);
+}
+
+.searchbox-content-decorator {
+  width: 5rem;
+  height: 4px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.75);
+
+  margin: 0.75rem 0;
+}
+
+.searchbox-searching-bar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.searchbox-searching-bar {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0.25rem 0.5rem;
+
+  font-size: 1.2rem;
+  color: var(--searchbox-input-text-color);
+}
+
+.searchbox-searching-bar::placeholder {
+  color: var(--searchbox-input-text-color);
+  font-size: 1rem;
+}
