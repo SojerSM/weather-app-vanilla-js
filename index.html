@@ -6,5 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
   </head>
-  <body></body>
+  <body>
+    <div class="app-window">
+      <main class="app-container">
+        <!-- Left section containing website header and searching functionality -->
+        <section class="app-wrapper-searchbox">
+          <div class="searchbox-header">
+            <h1 class="app-title">WeatherApp</h1>
+            <div class="searchbox-location-wrapper">
+              <img src="#" alt="#" id="location-icon" />
+              <div>
+                <p class="location-title">Current Location</p>
+                <h3 class="current-location">Szczecin, Poland</h3>
+              </div>
+            </div>
+          </div>
+          <div class="searchbox-content-wrapper">
+            <h2 class="searchbox-content-description">
+              Simple vanilla JS Weather App
+            </h2>
+            <p class="searchbox-content-decorator">-</p>
+            <div class="searchbox-searching-bar-wrapper">
+              <input
+                type="text"
+                class="searchbox-searching-bar"
+                placeholder="Enter location"
+              />
+              <img src="#" alt="#" id="searching-icon" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Right section containing actual weather data -->
+        <section class="app-wrapper-databox">
+          <nav class="databox-nav-wrapper">
+            <ul class="databox-nav-list">
+              <li class="databox-nav-el">
+                <a href="#" id="databox-nav-weather">Weather</a>
+              </li>
+              <li class="databox-nav-el">
+                <a href="#" class="databox-nav-news">News</a>
+              </li>
+            </ul>
+          </nav>
+          <h3 class="databox-title">Today</h3>
+          <div class="databox-general-wrapper">
+            <div class="databox-content-left">
+              <h5 class="databox-temp">25°C</p>
+              <div class="databox-weather-wrapper">
+                <p class="databox-weather-title">Sunny</p>
+                <img src="#" alt="#" id="databox-weather-icon">
+              </div> 
+              <p class="databox-current-date">Monday 29, Nov '22</p> 
+            </div>
+            <div class="databox-details-wrapper">
+            </div>
+
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
 </html>
