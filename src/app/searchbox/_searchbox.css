@@ -1,6 +1,6 @@
 .app-wrapper-searchbox {
   position: relative;
-  background-image: url("../../assets/background-05.jpg");
+  background-image: url("../../assets/background-04.jpg");
   background-size: cover;
 
   width: var(--searchbox-width);
