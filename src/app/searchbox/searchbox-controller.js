@@ -1,10 +1,12 @@
-import * as model from '../searchbox/searchbox-model.js';
+import * as model from './searchbox-model';
 import searchboxView from './searchbox-view.js';
 
 export const controlWeatherData = async function () {
-  model.loadWeatherData(searchboxView.getQuery());
+  model.loadLocation(searchboxView.getQuery());
 };
 
-export const controlSearchboxEvents = function () {
+const init = async function () {
   searchboxView.addHandlerSearch(controlWeatherData);
 };
+
+init();
