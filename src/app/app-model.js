@@ -1,6 +1,6 @@
-import { API_KEY, API_DIRECT_URL, API_STD_URL } from '../config';
+import { API_KEY, API_DIRECT_URL, API_STD_URL } from './config';
 
-const state = {
+export const state = {
   latitude: 0,
   longitude: 0,
   name: '',
@@ -15,21 +15,18 @@ export const loadLocation = async function (cityName) {
     );
     const data = await request.json();
     updateState(data[0]);
-    loadWeatherData();
   } catch (err) {
     console.log(`Error: ${err}`);
   }
-  console.log(state);
 };
 
-const loadWeatherData = async function () {
+export const loadWeatherData = async function () {
   try {
     const request = await fetch(
       `${API_STD_URL}lat=${state.latitude}&lon=${state.longitude}&appid=${API_KEY}`
     );
     const data = await request.json();
     state.weather = createWeatherObject(data);
-    console.log(state);
   } catch (err) {
     console.log(`Erorr: ${err}`);
   }
