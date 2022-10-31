@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/app/main.css">
-    <script defer type="module" src="./src/app/searchbox/searchbox-controller.js"></script>
+    <link rel="stylesheet" href="./src/app/main.css" />
+    <script
+      defer
+      type="module"
+      src="./src/app/searchbox/searchbox-controller.js"
+    ></script>
     <title>Weather App</title>
   </head>
   <body>
@@ -16,7 +20,11 @@
           <div class="searchbox-header">
             <h1 class="app-title">WeatherApp</h1>
             <div class="searchbox-location-wrapper">
-              <img src="src/assets/icons/location-icon.png" alt="#" id="location-icon" />
+              <img
+                src="src/assets/icons/location-icon.png"
+                alt="#"
+                id="location-icon"
+              />
               <div>
                 <p class="location-title">Current Location</p>
                 <h3 class="current-location">Szczecin, Poland</h3>
@@ -40,29 +48,44 @@
 
         <!-- Right section containing actual weather data -->
         <section class="app-wrapper-databox">
-          <nav class="databox-nav-wrapper">
+          <nav>
             <ul class="databox-nav-list">
               <li class="databox-nav-el">
                 <a href="#" id="databox-nav-weather">Weather</a>
               </li>
               <li class="databox-nav-el">
-                <a href="#" class="databox-nav-news">News</a>
+                <a href="#" id="databox-nav-news">News</a>
               </li>
             </ul>
           </nav>
           <h3 class="databox-title">Today</h3>
           <div class="databox-general-wrapper">
-            <div class="databox-content-left">
-              <h5 class="databox-temp">25°C</p>
+            <div class="databox-content-general">
+              <h5 class="databox-temp">25<span>°C</span></h5>
               <div class="databox-weather-wrapper">
                 <p class="databox-weather-title">Sunny</p>
-                <img src="#" alt="#" id="databox-weather-icon">
-              </div> 
-              <p class="databox-current-date">Monday 29, Nov '22</p> 
+                <img src="#" alt="#" id="databox-weather-icon" />
+              </div>
+              <p class="databox-current-date">Monday 29, Nov '22</p>
             </div>
-            <div class="databox-details-wrapper">
+            <p class="databox-content-decorator"></p>
+            <div class="databox-content-detailed">
+              <p class="databox-detail">
+                Humidity: <span id="humidity">50%</span>
+              </p>
+              <p class="databox-detail">
+                UV Index: <span id="uv-index">0</span>
+              </p>
+              <p class="databox-detail">
+                Cloud cover: <spand id="cloud-cover">30</spand> %
+              </p>
+              <p class="databox-detail">
+                Wind speed: <span id="wind-speed">12</span> km/h
+              </p>
+              <p class="databox-detail">
+                Pressure: <span id="pressure">1000</span> hPa
+              </p>
             </div>
-
           </div>
         </section>
       </main>

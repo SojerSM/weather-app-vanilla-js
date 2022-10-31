@@ -1,14 +1,18 @@
 :root {
   font-size: 16px;
+  --font-dark: rgba(0, 0, 0, 0.75);
 
   --searchbox-width: 60vh;
   --min-searchbox-width: 30rem;
 
+  --databox-width: 45vh;
+  --min-databox-width: 22.5rem;
+
   --app-container-height: 60vh;
   --min-app-container-height: 30rem;
 
-  --app-container-width: 100vh;
-  --min-app-container-width: 50rem;
+  --app-container-width: 105vh;
+  --min-app-container-width: 52.5rem;
 
   --app-container-padding: max(1.5rem, 2.5vh);
   --searchbox-text-color: rgba(255, 255, 255, 0.9);
