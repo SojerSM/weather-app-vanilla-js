@@ -44,6 +44,7 @@ const createWeatherObject = function (data) {
     country: data.sys.country,
     clouds: data.clouds.all,
     feelsLike: data.main.feels_like,
+    icon: data.weather[0].icon,
   };
 };
 
