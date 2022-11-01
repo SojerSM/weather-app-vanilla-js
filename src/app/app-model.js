@@ -1,10 +1,7 @@
 import { API_KEY, API_DIRECT_URL, API_STD_URL } from './config';
 
 export const state = {
-  latitude: 0,
-  longitude: 0,
-  name: '',
-  state: '',
+  currLocation: {},
   weather: {},
 };
 
@@ -14,7 +11,8 @@ export const loadLocation = async function (cityName) {
       `${API_DIRECT_URL}q=${cityName}&appid=${API_KEY}`
     );
     const data = await request.json();
-    updateState(data[0]);
+    state.currLocation = createCurrLocationObject(data[0]);
+    console.log(state);
   } catch (err) {
     console.log(`Error: ${err}`);
   }
@@ -23,7 +21,7 @@ export const loadLocation = async function (cityName) {
 export const loadWeatherData = async function () {
   try {
     const request = await fetch(
-      `${API_STD_URL}lat=${state.latitude}&lon=${state.longitude}&appid=${API_KEY}`
+      `${API_STD_URL}lat=${state.currLocation.latitude}&lon=${state.currLocation.longitude}&appid=${API_KEY}`
     );
     const data = await request.json();
     state.weather = createWeatherObject(data);
@@ -48,9 +46,10 @@ const createWeatherObject = function (data) {
   };
 };
 
-const updateState = function (data) {
-  state.latitude = data.lat;
-  state.longitude = data.lon;
-  state.name = data.name;
-  state.state = data.state;
+const createCurrLocationObject = function (data) {
+  return {
+    latitude: data.lat,
+    longitude: data.lon,
+    name: data.name,
+  };
 };

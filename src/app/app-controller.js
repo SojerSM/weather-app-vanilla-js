@@ -10,7 +10,7 @@ const controlWeatherData = async function () {
     if (!model.state) return;
 
     searchboxView.updateLocationWrapper(
-      model.state.name,
+      model.state.currLocation.name,
       model.state.weather.country
     );
     databoxView.updateDataboxWrapper(model.state.weather);
