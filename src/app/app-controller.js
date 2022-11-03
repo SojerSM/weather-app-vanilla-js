@@ -5,12 +5,15 @@ import databoxView from './databox/databox-view';
 const controlWeatherData = async function () {
   try {
     await model.loadLocation(searchboxView.getQuery());
-    await model.loadWeatherData();
+    await model.loadWeatherData(
+      model.state.currLocation.latitude,
+      model.state.currLocation.longitude
+    );
 
     if (!model.state) return;
 
     searchboxView.updateLocationWrapper(
-      model.state.currLocation.name,
+      model.state.weather.name,
       model.state.weather.country
     );
     databoxView.updateDataboxWrapper(model.state.weather);
@@ -19,7 +22,12 @@ const controlWeatherData = async function () {
   }
 };
 
-const init = async function () {
+const controlGeolocation = function () {
+  model.loadCurrentPosition();
+};
+
+const init = function () {
+  controlGeolocation();
   searchboxView.addHandlerSearch(controlWeatherData);
 };
 

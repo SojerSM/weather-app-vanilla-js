@@ -1,4 +1,4 @@
-import { calcKelvinToCelsius } from '../helpers.js';
+import { calcKelvinToCelsius } from '../utilities/helpers.js';
 
 class DataboxView {
   _tempElement = document.querySelector('.databox-temp');
