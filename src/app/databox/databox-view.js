@@ -8,6 +8,7 @@ class DataboxView {
   _feelslikeElement = document.querySelector('#feelslike');
   _cloudElement = document.querySelector('#cloud-cover');
   _windElement = document.querySelector('#wind-speed');
+  _pressureElement = document.querySelector('#pressure');
 
   constructor() {}
 
@@ -21,6 +22,7 @@ class DataboxView {
     )}°C`;
     this._cloudElement.textContent = data.clouds;
     this._windElement.textContent = data.windSpeed;
+    this._pressureElement.textContent = data.pressure;
   }
 }
 
