@@ -1,47 +1,61 @@
-import { API_KEY, API_DIRECT_URL, API_STD_URL } from './utilities/config';
+import * as config from './utilities/config';
+import { getGeolocation } from './utilities/helpers';
 
 export const state = {
   currLocation: {},
   weather: {},
 };
 
-export const loadLocation = async function (cityName) {
+export const loadAnyLocation = async function (cityName) {
   try {
     const request = await fetch(
-      `${API_DIRECT_URL}q=${cityName}&appid=${API_KEY}`
+      `${config.API_DIRECT_URL}q=${cityName}&appid=${config.API_KEY}`
     );
     const data = await request.json();
     state.currLocation = createCurrLocationObject(data[0]);
   } catch (err) {
     console.log(`Error: ${err}`);
   }
+  console.log(state);
 };
 
 export const loadWeatherData = async function (lat, lon) {
   try {
     const request = await fetch(
-      `${API_STD_URL}lat=${lat}&lon=${lon}&appid=${API_KEY}`
+      `${config.API_STD_URL}lat=${lat}&lon=${lon}&appid=${config.API_KEY}`
     );
     const data = await request.json();
     state.weather = createWeatherObject(data);
-    console.log(state);
   } catch (err) {
     console.log(`Erorr: ${err}`);
   }
 };
 
-export const loadCurrentPosition = function () {
-  const successCallback = function (position) {
+export const loadInitialLocation = async function () {
+  try {
+    const position = await getGeolocation();
     state.currLocation.latitude = position.coords.latitude;
     state.currLocation.longitude = position.coords.longitude;
-  };
-
-  const errorCallback = (error) => {
-    console.log(error);
-  };
-
-  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    await getCityName(
+      state.currLocation.latitude,
+      state.currLocation.longitude
+    );
+  } catch (err) {
+    console.log(`Error: ${err}`);
+  }
   console.log(state);
+};
+
+const getCityName = async function (lat, lon) {
+  try {
+    const request = await fetch(
+      `${config.API_REVERSE_URL}lat=${lat}&lon=${lon}&limit=${config.REV_LIM_RESULTS}&appid=${config.API_KEY}`
+    );
+    const data = await request.json();
+    state.currLocation.cityName = data[0].name;
+  } catch (err) {
+    console.log(`Error: ${err}`);
+  }
 };
 
 const createWeatherObject = function (data) {
@@ -65,5 +79,6 @@ const createCurrLocationObject = function (data) {
   return {
     latitude: data.lat,
     longitude: data.lon,
+    cityName: data.name,
   };
 };

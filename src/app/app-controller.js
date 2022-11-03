@@ -2,9 +2,9 @@ import * as model from './app-model';
 import searchboxView from './searchbox/searchbox-view.js';
 import databoxView from './databox/databox-view';
 
+// Loading actual data from model.state obj & updating views
 const controlWeatherData = async function () {
   try {
-    await model.loadLocation(searchboxView.getQuery());
     await model.loadWeatherData(
       model.state.currLocation.latitude,
       model.state.currLocation.longitude
@@ -13,7 +13,7 @@ const controlWeatherData = async function () {
     if (!model.state) return;
 
     searchboxView.updateLocationWrapper(
-      model.state.weather.name,
+      model.state.currLocation.cityName,
       model.state.weather.country
     );
     databoxView.updateDataboxWrapper(model.state.weather);
@@ -22,13 +22,29 @@ const controlWeatherData = async function () {
   }
 };
 
-const controlGeolocation = function () {
-  model.loadCurrentPosition();
+// Control data flow with a location read from input bar
+const controlAnyLocation = async function () {
+  try {
+    await model.loadAnyLocation(searchboxView.getQuery());
+    await controlWeatherData();
+  } catch (err) {
+    console.log(`Error: ${err}`);
+  }
+};
+
+// Control data flow with a geolocation API
+const controlGeolocation = async function () {
+  try {
+    await model.loadInitialLocation();
+    await controlWeatherData();
+  } catch (err) {
+    console.log(`Error: ${err}`);
+  }
 };
 
 const init = function () {
   controlGeolocation();
-  searchboxView.addHandlerSearch(controlWeatherData);
+  searchboxView.addHandlerSearch(controlAnyLocation);
 };
 
 init();
