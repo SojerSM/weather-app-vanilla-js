@@ -10,12 +10,9 @@ class DataboxView {
   _windElement = document.querySelector('#wind-speed');
   _pressureElement = document.querySelector('#pressure');
 
-  constructor() {}
-
-  updateDataboxWrapper(data) {
+  updateDataboxWrapper(data, date) {
     this._tempElement.textContent = `${calcKelvinToCelsius(data.temp)}°C`;
-    this._weatherElement.textContent = data.weather;
-    // Date builder need to be added
+    this._weatherElement.textContent = data.weather.slice(0, 8);
     this._humidityElement.textContent = data.humidity;
     this._feelslikeElement.textContent = `${calcKelvinToCelsius(
       data.feelsLike
@@ -23,6 +20,7 @@ class DataboxView {
     this._cloudElement.textContent = data.clouds;
     this._windElement.textContent = data.windSpeed;
     this._pressureElement.textContent = data.pressure;
+    this._dateElement.textContent = date;
   }
 }
 

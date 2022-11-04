@@ -2,8 +2,6 @@ class SearchboxView {
   _searchingElement = document.querySelector('.searchbox-searching-bar');
   _locationElement = document.querySelector('.current-location');
 
-  constructor() {}
-
   getQuery() {
     const query = this._searchingElement.value;
     this._clearInput();

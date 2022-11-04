@@ -58,6 +58,8 @@ a:hover {
   flex-direction: row;
   align-items: center;
   justify-content: left;
+
+  min-height: 16vh;
 }
 
 .databox-content-decorator {
@@ -76,7 +78,8 @@ a:hover {
 }
 
 .databox-content-general {
-  min-width: fit-content;
+  width: fit-content;
+  min-width: 45%;
 }
 
 .databox-temp {
@@ -106,7 +109,7 @@ a:hover {
 }
 
 .databox-content-detailed > p {
-  font-size: max(0.7rem, 1.6vh);
+  font-size: max(0.55rem, 1.4vh);
   color: rgba(0, 0, 0, 0.4);
 }
 
