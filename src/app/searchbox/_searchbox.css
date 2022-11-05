@@ -30,34 +30,34 @@
 .app-title {
   color: var(--searchbox-text-color);
   text-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.75);
-  font-size: max(1.25rem, 2.75vh);
-  margin-left: max(0.5rem, 1.5vh);
+  font-size: max(1.5rem, 3.25vh);
+  margin-left: max(0.6rem, 1.75vh);
 }
 
 .searchbox-location-wrapper {
   display: flex;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.25);
-  padding: 0.35rem 0.85rem;
+  padding: 0.4rem 0.85rem;
   border-radius: 15px;
 }
 
 #location-icon {
-  height: 2.5vh;
-  min-height: 1rem;
+  height: 3vh;
+  min-height: 1.25rem;
   margin-right: 0.5rem;
 }
 
 .location-title {
   color: var(--searchbox-text-color);
 
-  font-size: max(0.6rem, 1.25vh);
+  font-size: max(0.7rem, 1.4vh);
   font-weight: bold;
 }
 
 .current-location {
   color: var(--searchbox-text-color);
-  font-size: max(1rem, 2vh);
+  font-size: max(1.1rem, 2.2vh);
 }
 
 .searchbox-content-wrapper {
@@ -70,17 +70,17 @@
 .searchbox-content-description {
   color: var(--searchbox-text-color);
   text-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.75);
-  font-size: max(1.25rem, 2.5vh);
+  font-size: max(1.4rem, 2.8vh);
 }
 
 .searchbox-content-decorator {
   width: 5rem;
-  height: max(2px, 0.4vh);
+  height: max(2px, 0.45vh);
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.75);
 
-  margin: 0.75rem 0;
+  margin: 0.8rem 0;
 }
 
 .searchbox-searching-bar-wrapper {
@@ -95,13 +95,13 @@
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 0.25rem 0.5rem;
-  width: max(15rem, 30vh);
+  width: max(17.5rem, 37.5vh);
 
-  font-size: max(1.25rem, 2.5vh);
+  font-size: max(1.35rem, 2.75vh);
   color: var(--searchbox-input-text-color);
 }
 
 .searchbox-searching-bar::placeholder {
   color: var(--searchbox-input-text-color);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
 }

@@ -3,18 +3,18 @@
   --font-dark: rgba(0, 0, 0, 0.75);
 
   --searchbox-width: 60vh;
-  --min-searchbox-width: 30rem;
+  --min-searchbox-width: 36rem;
 
   --databox-width: 45vh;
-  --min-databox-width: 22.5rem;
+  --min-databox-width: 27rem;
 
   --app-container-height: 60vh;
-  --min-app-container-height: 30rem;
+  --min-app-container-height: 36rem;
 
   --app-container-width: 105vh;
-  --min-app-container-width: 52.5rem;
+  --min-app-container-width: 63rem;
 
-  --app-container-padding: max(1.5rem, 2.5vh);
+  --app-container-padding: max(1.75rem, 2.5vh);
   --searchbox-text-color: rgba(255, 255, 255, 0.9);
   --searchbox-input-text-color: rgba(0, 0, 0, 0.5);
 }
@@ -32,6 +32,7 @@ body {
   background-image: url('../../assets/background-01.jpg');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   min-height: 100vh;
   min-width: 100vw;
 }

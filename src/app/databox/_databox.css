@@ -1,6 +1,7 @@
 .app-wrapper-databox {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   min-width: var(--min-databox-width);
   width: var(--databox-width);
 
@@ -32,7 +33,7 @@ a:hover,
 a:active,
 a:visited {
   text-decoration: none;
-  font-size: max(0.85rem, 1.85vh);
+  font-size: max(1rem, 2vh);
 }
 
 a {
@@ -46,11 +47,7 @@ a:hover {
 
 .databox-title {
   margin: 1.5rem 0 1rem 0;
-  font-size: max(1.75rem, 3.75vh);
-}
-
-#databox-weather-icon {
-  height: max(30px, 5vh);
+  font-size: max(2rem, 4vh);
 }
 
 .databox-general-wrapper,
@@ -64,7 +61,7 @@ a:hover {
   align-items: center;
   justify-content: left;
 
-  min-height: 16vh;
+  min-height: 17.5vh;
 }
 
 .databox-content-decorator {
@@ -88,7 +85,7 @@ a:hover {
 }
 
 .databox-temp {
-  font-size: max(1.5rem, 3.5vh);
+  font-size: max(1.75rem, 3.5vh);
   font-weight: bold;
 }
 
@@ -100,11 +97,15 @@ a:hover {
 
 .databox-weather-title {
   margin: 0.5vh 0.5rem 0.5vh 0;
-  font-size: max(1.5rem, 3.5vh);
+  font-size: max(1.3rem, 3vh);
+}
+
+#databox-weather-icon {
+  height: max(35px, 5vh);
 }
 
 .databox-current-date {
-  font-size: max(0.6rem, 1.5vh);
+  font-size: max(0.8rem, 1.5vh);
 }
 
 .databox-content-detailed {
@@ -114,17 +115,18 @@ a:hover {
 }
 
 .databox-content-detailed > p {
-  font-size: max(0.55rem, 1.4vh);
-  color: rgba(0, 0, 0, 0.4);
+  font-size: max(0.8rem, 1.6vh);
+  color: rgba(0, 0, 0, 0.5);
+  min-width: 50%;
 }
 
 .databox-content-detailed > p > span {
-  margin-left: 0.25rem;
+  margin-left: 0.3rem;
 }
 
 .databox-future-title {
-  font-size: max(1rem, 2.5vh);
-  margin: 1rem 0 1rem 0;
+  font-size: max(1.2rem, 2.5vh);
+  margin: 1.5rem 0 1rem 0;
 }
 
 .databox-future-wrapper {
@@ -141,17 +143,17 @@ a:hover {
   justify-content: flex-start;
 
   min-width: 100%;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
 }
 
 .future-element-date {
-  font-size: max(0.8rem, 1.5vh);
+  font-size: max(0.85rem, 1.5vh);
   min-width: 35%;
 }
 
 .future-element-temp {
   font-weight: bolder;
-  min-width: 25%;
+  min-width: 27.5%;
 }
 
 .future-element-temp,
@@ -160,11 +162,12 @@ a:hover {
 }
 
 #future-element-icon {
-  height: 3.25vh;
-  margin-left: 0.5rem;
+  height: max(30px, 3vh);
+  margin-left: 0.75rem;
 }
 
 .future-element-weather-wrapper {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
