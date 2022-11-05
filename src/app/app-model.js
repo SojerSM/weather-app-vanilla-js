@@ -6,6 +6,18 @@ export const state = {
   weather: {},
 };
 
+export const loadFutureWeatherData = async function (lat, lon) {
+  try {
+    const request = await fetch(
+      `${config.API_FUTURE_URL}lat=${lat}&lon=${lon}&appid=${config.API_KEY}`
+    );
+    const data = await request.json();
+    console.log(data);
+  } catch (err) {
+    console.log(`Error: ${err}`);
+  }
+};
+
 export const loadAnyLocation = async function (cityName) {
   try {
     const request = await fetch(

@@ -45,11 +45,12 @@ a:hover {
 }
 
 .databox-title {
-  margin: 2rem 0 1rem 0;
+  margin: 1.5rem 0 1rem 0;
   font-size: max(1.75rem, 3.75vh);
 }
 
-.databox-general-wrapper {
+.databox-general-wrapper,
+.databox-future-wrapper {
   border-radius: 15px;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.35);
   padding: var(--app-container-padding);
@@ -115,4 +116,38 @@ a:hover {
 
 .databox-content-detailed > p > span {
   margin-left: 0.25rem;
+}
+
+.databox-future-title {
+  font-size: max(1rem, 2.5vh);
+  margin: 1rem 0 1rem 0;
+}
+
+.databox-future-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.databox-future-element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  min-width: 80%;
+}
+
+.future-element-date {
+  font-size: max(0.8rem, 1.5vh);
+}
+
+.future-element-temp {
+  font-weight: bolder;
+}
+
+.future-element-temp,
+.future-element-weather {
+  font-size: max(1rem, 1.75vh);
 }
