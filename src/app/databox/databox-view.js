@@ -1,4 +1,5 @@
 import { calcKelvinToCelsius } from '../utilities/helpers.js';
+import { API_ICON_URL } from '../utilities/config.js';
 
 class DataboxView {
   _tempElement = document.querySelector('.databox-temp');
@@ -9,6 +10,7 @@ class DataboxView {
   _cloudElement = document.querySelector('#cloud-cover');
   _windElement = document.querySelector('#wind-speed');
   _pressureElement = document.querySelector('#pressure');
+  _iconElement = document.querySelector('#databox-weather-icon');
 
   _forecastWrapper = document.querySelector('.databox-future-wrapper');
 
@@ -23,6 +25,7 @@ class DataboxView {
     this._windElement.textContent = data.windSpeed;
     this._pressureElement.textContent = data.pressure;
     this._dateElement.textContent = date;
+    this._iconElement.src = `${API_ICON_URL}${data.icon}.png`;
   }
 
   generateForeacstMarkup(data) {
@@ -33,9 +36,14 @@ class DataboxView {
         <div class="databox-future-element">
           <p class="future-element-date">${item.date}</p>
           <p class="future-element-temp">${calcKelvinToCelsius(item.temp)}°C</p>
-          <p class="future-element-weather">${item.weather}</p>
+          <div class="future-element-weather-wrapper">
+            <p class="future-element-weather">${item.weather}</p>
+            <img src="${API_ICON_URL}${
+        item.icon
+      }.png" alt="#" id="future-element-icon" />
+          </div>
         </div>`;
-      this._forecastWrapper.insertAdjacentHTML('afterbegin', markup);
+      this._forecastWrapper.insertAdjacentHTML('beforeend', markup);
     });
   }
 

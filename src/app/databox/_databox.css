@@ -49,6 +49,10 @@ a:hover {
   font-size: max(1.75rem, 3.75vh);
 }
 
+#databox-weather-icon {
+  height: max(30px, 5vh);
+}
+
 .databox-general-wrapper,
 .databox-future-wrapper {
   border-radius: 15px;
@@ -134,21 +138,33 @@ a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 
-  min-width: 80%;
+  min-width: 100%;
   margin-bottom: 0.25rem;
 }
 
 .future-element-date {
   font-size: max(0.8rem, 1.5vh);
+  min-width: 35%;
 }
 
 .future-element-temp {
   font-weight: bolder;
+  min-width: 25%;
 }
 
 .future-element-temp,
 .future-element-weather {
   font-size: max(1rem, 1.75vh);
+}
+
+#future-element-icon {
+  height: 3.25vh;
+  margin-left: 0.5rem;
+}
+
+.future-element-weather-wrapper {
+  display: flex;
+  flex-direction: row;
 }

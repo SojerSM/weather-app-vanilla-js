@@ -16,8 +16,9 @@ export const loadForecastData = async function (lat, lon) {
 
     state.forecast = [];
 
-    for (let i = 0; i < 5; i++) {
-      state.forecast.push(createForecastObject(data.list[i]));
+    for (let i = 0; i < 4; i++) {
+      const nextDay = i * 8;
+      state.forecast.push(createForecastObject(data.list[nextDay]));
     }
   } catch (err) {
     console.log(`Error: ${err}`);
@@ -103,8 +104,9 @@ const createCurrLocationObject = function (data) {
 
 const createForecastObject = function (data) {
   return {
-    date: data.dt_txt.slice(0, 9),
+    date: data.dt_txt.slice(0, 10),
     temp: data.main.temp,
     weather: data.weather[0].main,
+    icon: data.weather[0].icon,
   };
 };

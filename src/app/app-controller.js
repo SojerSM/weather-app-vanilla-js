@@ -26,6 +26,7 @@ const controlWeatherData = async function () {
   } catch (err) {
     console.log(`Error: ${err}`);
   }
+  console.log(model.state);
 };
 
 // Control data flow with a location read from input bar
