@@ -10,7 +10,7 @@ const controlWeatherData = async function () {
       model.state.currLocation.latitude,
       model.state.currLocation.longitude
     );
-    await model.loadFutureWeatherData(
+    await model.loadForecastData(
       model.state.currLocation.latitude,
       model.state.currLocation.longitude
     );

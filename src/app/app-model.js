@@ -4,15 +4,21 @@ import { getGeolocation } from './utilities/helpers';
 export const state = {
   currLocation: {},
   weather: {},
+  forecast: [],
 };
 
-export const loadFutureWeatherData = async function (lat, lon) {
+export const loadForecastData = async function (lat, lon) {
   try {
     const request = await fetch(
       `${config.API_FUTURE_URL}lat=${lat}&lon=${lon}&appid=${config.API_KEY}`
     );
     const data = await request.json();
-    console.log(data);
+
+    for (let i = 0; i < 5; i++) {
+      state.forecast.push(createForecastObject(data.list[i]));
+    }
+
+    console.log(state.forecast);
   } catch (err) {
     console.log(`Error: ${err}`);
   }
@@ -92,5 +98,13 @@ const createCurrLocationObject = function (data) {
     latitude: data.lat,
     longitude: data.lon,
     cityName: data.name,
+  };
+};
+
+const createForecastObject = function (data) {
+  return {
+    date: data.dt_txt.slice(0, 9),
+    temp: data.main.temp,
+    weather: data.weather[0].main,
   };
 };
