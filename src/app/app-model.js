@@ -17,8 +17,6 @@ export const loadForecastData = async function (lat, lon) {
     for (let i = 0; i < 5; i++) {
       state.forecast.push(createForecastObject(data.list[i]));
     }
-
-    console.log(state.forecast);
   } catch (err) {
     console.log(`Error: ${err}`);
   }

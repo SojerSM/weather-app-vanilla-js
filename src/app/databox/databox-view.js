@@ -10,6 +10,8 @@ class DataboxView {
   _windElement = document.querySelector('#wind-speed');
   _pressureElement = document.querySelector('#pressure');
 
+  _forecastWrapper = document.querySelector('.databox-future-wrapper');
+
   updateDataboxWrapper(data, date) {
     this._tempElement.textContent = `${calcKelvinToCelsius(data.temp)}°C`;
     this._weatherElement.textContent = data.weather.slice(0, 8);
@@ -21,6 +23,18 @@ class DataboxView {
     this._windElement.textContent = data.windSpeed;
     this._pressureElement.textContent = data.pressure;
     this._dateElement.textContent = date;
+  }
+
+  generateForeacstMarkup(data) {
+    data.forEach((item) => {
+      const markup = `
+        <div class="databox-future-element">
+          <p class="future-element-date">${item.date}</p>
+          <p class="future-element-temp">${calcKelvinToCelsius(item.temp)}°C</p>
+          <p class="future-element-weather">${item.weather}</p>
+        </div>`;
+      this._forecastWrapper.insertAdjacentHTML('afterbegin', markup);
+    });
   }
 }
 

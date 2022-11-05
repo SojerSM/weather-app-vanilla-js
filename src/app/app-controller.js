@@ -22,6 +22,7 @@ const controlWeatherData = async function () {
       model.state.weather.country
     );
     databoxView.updateDataboxWrapper(model.state.weather, dateBuilder());
+    databoxView.generateForeacstMarkup(model.state.forecast);
   } catch (err) {
     console.log(`Error: ${err}`);
   }
