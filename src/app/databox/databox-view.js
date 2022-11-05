@@ -26,6 +26,8 @@ class DataboxView {
   }
 
   generateForeacstMarkup(data) {
+    this._clearView(this._forecastWrapper);
+
     data.forEach((item) => {
       const markup = `
         <div class="databox-future-element">
@@ -35,6 +37,10 @@ class DataboxView {
         </div>`;
       this._forecastWrapper.insertAdjacentHTML('afterbegin', markup);
     });
+  }
+
+  _clearView(wrapper) {
+    wrapper.innerHTML = '';
   }
 }
 

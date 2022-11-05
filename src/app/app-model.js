@@ -14,6 +14,8 @@ export const loadForecastData = async function (lat, lon) {
     );
     const data = await request.json();
 
+    state.forecast = [];
+
     for (let i = 0; i < 5; i++) {
       state.forecast.push(createForecastObject(data.list[i]));
     }
