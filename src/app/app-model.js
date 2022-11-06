@@ -13,11 +13,20 @@ export const loadForecastData = async function (lat, lon) {
       `${config.API_FUTURE_URL}lat=${lat}&lon=${lon}&appid=${config.API_KEY}`
     );
     const data = await request.json();
+
+    //Find an hour modifier suitable for a noon in UTC 0 time
+    let timezoneModifier =
+      (data.city.timezone / 3600) % 3 === 0
+        ? data.city.timezone / 3600
+        : data.city.timezone / 3600 - ((data.city.timezone / 3600) % 3);
+    timezoneModifier = timezoneModifier === 12 ? 9 : timezoneModifier;
+    console.log(timezoneModifier);
+
     state.forecast = [];
 
     //Display forecast starting from the next day 12:00 and each every 24h
     data.list.filter((list) => {
-      if (list.dt_txt.slice(11, 13) == '12') {
+      if (list.dt_txt.slice(11, 13) == 12 - timezoneModifier) {
         state.forecast.push(createForecastObject(list));
       }
     });
@@ -92,6 +101,7 @@ const createWeatherObject = function (data) {
     feelsLike: data.main.feels_like,
     icon: data.weather[0].icon,
     name: data.name,
+    timezone: data.timezone,
   };
 };
 
