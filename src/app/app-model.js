@@ -13,13 +13,14 @@ export const loadForecastData = async function (lat, lon) {
       `${config.API_FUTURE_URL}lat=${lat}&lon=${lon}&appid=${config.API_KEY}`
     );
     const data = await request.json();
-
     state.forecast = [];
 
-    for (let i = 0; i < 4; i++) {
-      const nextDay = i * 8;
-      state.forecast.push(createForecastObject(data.list[nextDay]));
-    }
+    //Display forecast starting from the next day 12:00 and each every 24h
+    data.list.filter((list) => {
+      if (list.dt_txt.slice(11, 13) == '12') {
+        state.forecast.push(createForecastObject(list));
+      }
+    });
   } catch (err) {
     console.log(`Error: ${err}`);
   }
