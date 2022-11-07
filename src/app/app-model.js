@@ -5,6 +5,17 @@ export const state = {
   currLocation: {},
   weather: {},
   forecast: [],
+  timezoneModifier: 0,
+};
+
+//Find an hour modifier suitable for a noon in UTC 0 time
+const modifyByTimezone = function (data, value) {
+  state.timezoneModifier =
+    (data / value) % 3 === 0
+      ? data / value
+      : data / value - ((data / 3600) % 3);
+  state.timezoneModifier =
+    state.timezoneModifier === 12 ? 9 : state.timezoneModifier;
 };
 
 export const loadForecastData = async function (lat, lon) {
@@ -13,20 +24,12 @@ export const loadForecastData = async function (lat, lon) {
       `${config.API_FUTURE_URL}lat=${lat}&lon=${lon}&appid=${config.API_KEY}`
     );
     const data = await request.json();
-
-    //Find an hour modifier suitable for a noon in UTC 0 time
-    let timezoneModifier =
-      (data.city.timezone / 3600) % 3 === 0
-        ? data.city.timezone / 3600
-        : data.city.timezone / 3600 - ((data.city.timezone / 3600) % 3);
-    timezoneModifier = timezoneModifier === 12 ? 9 : timezoneModifier;
-    console.log(timezoneModifier);
-
+    modifyByTimezone(data.city.timezone, 3600);
     state.forecast = [];
 
     //Display forecast starting from the next day 12:00 and each every 24h
     data.list.filter((list) => {
-      if (list.dt_txt.slice(11, 13) == 12 - timezoneModifier) {
+      if (list.dt_txt.slice(11, 13) == 12 - state.timezoneModifier) {
         state.forecast.push(createForecastObject(list));
       }
     });
@@ -115,7 +118,7 @@ const createCurrLocationObject = function (data) {
 
 const createForecastObject = function (data) {
   return {
-    date: data.dt_txt.slice(0, 10),
+    date: data.dt_txt.slice(0, 14),
     temp: data.main.temp,
     weather: data.weather[0].main,
     icon: data.weather[0].icon,
