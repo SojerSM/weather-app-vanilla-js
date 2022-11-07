@@ -119,7 +119,7 @@ const createCurrLocationObject = function (data) {
 
 const createForecastObject = function (data) {
   return {
-    date: data.dt_txt.slice(0, 14),
+    date: data.dt_txt.slice(0, 10),
     temp: data.main.temp,
     weather: data.weather[0].main,
     icon: data.weather[0].icon,
