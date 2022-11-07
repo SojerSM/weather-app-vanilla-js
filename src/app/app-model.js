@@ -8,12 +8,11 @@ export const state = {
   timezoneModifier: 0,
 };
 
-//Find an hour modifier suitable for a noon in UTC 0 time
 const modifyByTimezone = function (data, value) {
   state.timezoneModifier =
     (data / value) % 3 === 0
       ? data / value
-      : data / value - ((data / 3600) % 3);
+      : data / value - ((data / value) % 3);
   state.timezoneModifier =
     state.timezoneModifier === 12 ? 9 : state.timezoneModifier;
 };
@@ -24,7 +23,9 @@ export const loadForecastData = async function (lat, lon) {
       `${config.API_FUTURE_URL}lat=${lat}&lon=${lon}&appid=${config.API_KEY}`
     );
     const data = await request.json();
-    modifyByTimezone(data.city.timezone, 3600);
+
+    //Find an hour modifier suitable for a noon in UTC 0 time
+    modifyByTimezone(data.city.timezone, config.TIMEZONE_UTC_STD);
     state.forecast = [];
 
     //Display forecast starting from the next day 12:00 and each every 24h

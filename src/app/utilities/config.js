@@ -7,3 +7,4 @@ export const API_REVERSE_URL = 'http://api.openweathermap.org/geo/1.0/reverse?';
 export const API_ICON_URL = 'https://openweathermap.org/img/w/';
 
 export const REV_LIM_RESULTS = 1;
+export const TIMEZONE_UTC_STD = 3600;
