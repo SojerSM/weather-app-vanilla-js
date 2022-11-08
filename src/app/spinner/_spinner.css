@@ -1,14 +1,27 @@
-.loader {
+@import '../utilities/_base.css';
+
+.spinner {
   position: absolute;
-  width: 4rem;
-  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader {
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
   display: inline-block;
   border-top: 5px solid var(--highlighted);
-  border-right: 5px solid rgba(0, 0, 0, 0.7);
+  border-right: 5px solid rgba(255, 255, 255, 0.7);
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.spinner-text {
+  font-size: max(1.2rem, 2.4vh);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 @keyframes rotation {

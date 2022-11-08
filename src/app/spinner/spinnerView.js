@@ -4,7 +4,9 @@ class AppView {
 
   renderSpinner() {
     const spinnerMarkup = `
-    <span class="loader"></span>`;
+    <span class="loader"></span>
+    <p class="spinner-text">Loading your location...</p>
+    `;
     this._parentElement.insertAdjacentHTML('afterbegin', spinnerMarkup);
   }
 
@@ -13,6 +15,7 @@ class AppView {
   }
 
   displayAppContainer() {
+    this._parentElement.innerHTML = '';
     this._appContainerElement.classList.remove('hidden');
   }
 }
