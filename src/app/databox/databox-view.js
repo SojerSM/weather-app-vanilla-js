@@ -30,7 +30,7 @@ class DataboxView {
     this._timeElement.textContent = time;
   }
 
-  generateForeacstMarkup(data) {
+  generateForecastMarkup(data) {
     this._clearView(this._forecastWrapper);
 
     data.forEach((item) => {

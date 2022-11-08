@@ -2,6 +2,7 @@ import * as model from './app-model';
 import { dateBuilder, getCurrTime } from './utilities/helpers';
 import searchboxView from './searchbox/searchbox-view.js';
 import databoxView from './databox/databox-view';
+import appView from './app-view';
 
 // Loading actual data from model.state obj & updating views
 const controlWeatherData = async function () {
@@ -26,11 +27,11 @@ const controlWeatherData = async function () {
       dateBuilder(),
       getCurrTime()
     );
-    databoxView.generateForeacstMarkup(model.state.forecast);
+    databoxView.generateForecastMarkup(model.state.forecast);
   } catch (err) {
     console.log(`Error: ${err}`);
   }
-  console.log(model.state);
+  appView.displayAppContainer();
 };
 
 // Control data flow with a location read from input bar
@@ -54,6 +55,7 @@ const controlGeolocation = async function () {
 };
 
 const init = function () {
+  appView.renderSpinner();
   controlGeolocation();
   searchboxView.addHandlerSearch(controlAnyLocation);
 };
