@@ -2,35 +2,47 @@ import * as model from './app-model';
 import { dateBuilder, getCurrTime } from './utilities/helpers';
 import searchboxView from './searchbox/searchbox-view.js';
 import databoxView from './databox/databox-view';
-import appView from './spinner/spinnerView';
-
-const currLocation = model.state.currLocation;
-const weather = model.state.weather;
+import spinnerView from './spinner/spinnerView';
+import errorView from './error/errorView';
 
 // Loading actual data from model.state obj & updating views
 const controlWeatherData = async function () {
   try {
-    await model.loadWeatherData(currLocation.latitude, currLocation.longitude);
-    await model.loadForecastData(currLocation.latitude, currLocation.longitude);
+    await model.loadWeatherData(
+      model.state.currLocation.latitude,
+      model.state.currLocation.longitude
+    );
+    await model.loadForecastData(
+      model.state.currLocation.latitude,
+      model.state.currLocation.longitude
+    );
 
     if (!model.state) return;
 
-    searchboxView.updateLocationWrapper(currLocation.cityName, weather.country);
-    databoxView.updateDataboxWrapper(weather, dateBuilder(), getCurrTime());
+    searchboxView.updateLocationWrapper(
+      model.state.currLocation.cityName,
+      model.state.weather.country
+    );
+    databoxView.updateDataboxWrapper(
+      model.state.weather,
+      dateBuilder(),
+      getCurrTime()
+    );
     databoxView.generateForecastMarkup(model.state.forecast);
   } catch (err) {
     console.log(`Error: ${err}`);
   }
-  appView.displayAppContainer();
+  spinnerView.displayAppContainer();
 };
 
 // Control data flow with a location read from input bar
 const controlAnyLocation = async function () {
   try {
+    errorView._clearView();
     await model.loadAnyLocation(searchboxView.getQuery());
     await controlWeatherData();
   } catch (err) {
-    console.log(`Error: ${err}`);
+    errorView.renderErrorElement(model.state.errorMessages.inputError);
   }
 };
 
@@ -45,7 +57,7 @@ const controlGeolocation = async function () {
 };
 
 const init = function () {
-  appView.renderSpinner();
+  spinnerView.renderSpinner();
   controlGeolocation();
   searchboxView.addHandlerSearch(controlAnyLocation);
 };

@@ -1,0 +1,14 @@
+.error-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  top: 92%;
+}
+
+.error-description {
+  font-size: max(1.2rem, 2.5vh);
+  color: rgba(255, 255, 255, 0.85);
+}

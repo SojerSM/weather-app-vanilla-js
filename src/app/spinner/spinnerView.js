@@ -1,4 +1,4 @@
-class AppView {
+class SpinnerView {
   _parentElement = document.querySelector('.spinner');
   _appContainerElement = document.querySelector('.app-container');
 
@@ -15,9 +15,9 @@ class AppView {
   }
 
   displayAppContainer() {
-    this._parentElement.innerHTML = '';
+    this._clearView();
     this._appContainerElement.classList.remove('hidden');
   }
 }
 
-export default new AppView();
+export default new SpinnerView();

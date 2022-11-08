@@ -6,6 +6,9 @@ export const state = {
   weather: {},
   forecast: [],
   timezoneModifier: 0,
+  errorMessages: {
+    inputError: 'City not found.',
+  },
 };
 
 const modifyByTimezone = function (data, value) {
@@ -48,7 +51,8 @@ export const loadAnyLocation = async function (cityName) {
     const data = await request.json();
     state.currLocation = createCurrLocationObject(data[0]);
   } catch (err) {
-    console.log(`Error: ${err}`);
+    console.log(err);
+    throw new Error();
   }
   console.log(state);
 };
