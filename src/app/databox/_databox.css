@@ -1,7 +1,7 @@
 .app-wrapper-databox {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   min-width: var(--min-databox-width);
   width: var(--databox-width);
 
@@ -46,7 +46,7 @@ a:hover {
 }
 
 .databox-title {
-  margin: 1.5rem 0 1rem 0;
+  margin: 1.25rem 0 1rem 0;
   font-size: max(2rem, 4vh);
 }
 
@@ -115,7 +115,7 @@ a:hover {
 }
 
 .databox-content-detailed > p {
-  font-size: max(0.8rem, 1.6vh);
+  font-size: max(0.8rem, 1.45vh);
   color: rgba(0, 0, 0, 0.5);
   min-width: 50%;
 }
@@ -133,7 +133,8 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
+  min-height: max(10rem, 20vh);
 }
 
 .databox-future-element {
@@ -143,11 +144,10 @@ a:hover {
   justify-content: flex-start;
 
   min-width: 100%;
-  margin-bottom: 0.35rem;
 }
 
 .future-element-date {
-  font-size: max(0.85rem, 1.5vh);
+  font-size: max(0.85rem, 1.2vh);
   min-width: 35%;
 }
 
@@ -158,11 +158,11 @@ a:hover {
 
 .future-element-temp,
 .future-element-weather {
-  font-size: max(1rem, 1.75vh);
+  font-size: max(1rem, 1.5vh);
 }
 
 #future-element-icon {
-  height: max(30px, 3vh);
+  height: max(28px, 2.5vh);
   margin-left: 0.75rem;
 }
 

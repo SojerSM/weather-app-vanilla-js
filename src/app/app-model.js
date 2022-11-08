@@ -34,6 +34,7 @@ export const loadForecastData = async function (lat, lon) {
         state.forecast.push(createForecastObject(list));
       }
     });
+    state.forecast.length = 4;
   } catch (err) {
     console.log(`Error: ${err}`);
   }
