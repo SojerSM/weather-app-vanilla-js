@@ -11,10 +11,11 @@ class DataboxView {
   _windElement = document.querySelector('#wind-speed');
   _pressureElement = document.querySelector('#pressure');
   _iconElement = document.querySelector('#databox-weather-icon');
+  _timeElement = document.querySelector('.databox-title-time');
 
   _forecastWrapper = document.querySelector('.databox-future-wrapper');
 
-  updateDataboxWrapper(data, date) {
+  updateDataboxWrapper(data, date, time) {
     this._tempElement.textContent = `${calcKelvinToCelsius(data.temp)}°C`;
     this._weatherElement.textContent = data.weather.slice(0, 8);
     this._humidityElement.textContent = data.humidity;
@@ -26,6 +27,7 @@ class DataboxView {
     this._pressureElement.textContent = data.pressure;
     this._dateElement.textContent = date;
     this._iconElement.src = `${API_ICON_URL}${data.icon}.png`;
+    this._timeElement.textContent = time;
   }
 
   generateForeacstMarkup(data) {

@@ -107,6 +107,7 @@ const createWeatherObject = function (data) {
     icon: data.weather[0].icon,
     name: data.name,
     timezone: data.timezone,
+    time: data.dt,
   };
 };
 

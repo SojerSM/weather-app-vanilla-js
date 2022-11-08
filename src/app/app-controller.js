@@ -1,5 +1,5 @@
 import * as model from './app-model';
-import { dateBuilder } from './utilities/helpers';
+import { dateBuilder, getCurrTime } from './utilities/helpers';
 import searchboxView from './searchbox/searchbox-view.js';
 import databoxView from './databox/databox-view';
 
@@ -21,7 +21,11 @@ const controlWeatherData = async function () {
       model.state.currLocation.cityName,
       model.state.weather.country
     );
-    databoxView.updateDataboxWrapper(model.state.weather, dateBuilder());
+    databoxView.updateDataboxWrapper(
+      model.state.weather,
+      dateBuilder(),
+      getCurrTime()
+    );
     databoxView.generateForeacstMarkup(model.state.forecast);
   } catch (err) {
     console.log(`Error: ${err}`);
@@ -52,7 +56,6 @@ const controlGeolocation = async function () {
 const init = function () {
   controlGeolocation();
   searchboxView.addHandlerSearch(controlAnyLocation);
-  dateBuilder();
 };
 
 init();

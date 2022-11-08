@@ -45,9 +45,21 @@ a:hover {
   color: black;
 }
 
-.databox-title {
+.databox-title-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin: 1.25rem 0 1rem 0;
+}
+
+.databox-title {
   font-size: max(2rem, 4vh);
+}
+
+.databox-title-time {
+  font-size: max(1rem, 2vh);
+  margin-left: 0.5rem;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .databox-general-wrapper,
