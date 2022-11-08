@@ -2,7 +2,7 @@ import * as model from './app-model';
 import { dateBuilder, getCurrTime } from './utilities/helpers';
 import searchboxView from './searchbox/searchbox-view.js';
 import databoxView from './databox/databox-view';
-import appView from './app-view';
+import appView from './spinner/spinnerView';
 
 // Loading actual data from model.state obj & updating views
 const controlWeatherData = async function () {
