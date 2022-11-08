@@ -4,29 +4,19 @@ import searchboxView from './searchbox/searchbox-view.js';
 import databoxView from './databox/databox-view';
 import appView from './spinner/spinnerView';
 
+const currLocation = model.state.currLocation;
+const weather = model.state.weather;
+
 // Loading actual data from model.state obj & updating views
 const controlWeatherData = async function () {
   try {
-    await model.loadWeatherData(
-      model.state.currLocation.latitude,
-      model.state.currLocation.longitude
-    );
-    await model.loadForecastData(
-      model.state.currLocation.latitude,
-      model.state.currLocation.longitude
-    );
+    await model.loadWeatherData(currLocation.latitude, currLocation.longitude);
+    await model.loadForecastData(currLocation.latitude, currLocation.longitude);
 
     if (!model.state) return;
 
-    searchboxView.updateLocationWrapper(
-      model.state.currLocation.cityName,
-      model.state.weather.country
-    );
-    databoxView.updateDataboxWrapper(
-      model.state.weather,
-      dateBuilder(),
-      getCurrTime()
-    );
+    searchboxView.updateLocationWrapper(currLocation.cityName, weather.country);
+    databoxView.updateDataboxWrapper(weather, dateBuilder(), getCurrTime());
     databoxView.generateForecastMarkup(model.state.forecast);
   } catch (err) {
     console.log(`Error: ${err}`);
