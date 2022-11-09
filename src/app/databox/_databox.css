@@ -160,16 +160,13 @@
     min-height: 1;
   }
 
+  .future-element-temp,
   .databox-content-detailed > p {
     font-size: 1.3rem;
   }
 
   .future-element-date {
     font-size: 1.1rem;
-  }
-
-  .future-element-temp {
-    font-size: 1.4rem;
   }
 }
 

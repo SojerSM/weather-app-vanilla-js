@@ -113,38 +113,14 @@
     height: var(--searchbox-medium-screen-height);
   }
 
-  .app-title {
+  .app-title,
+  .searchbox-searching-bar::placeholder {
     font-size: 2.25rem;
     margin-left: 0;
   }
 
-  #location-icon {
-    height: 2rem;
-  }
-
-  .location-title {
-    font-size: 1rem;
-  }
-
-  .current-location {
-    font-size: 1.6rem;
-  }
-
   .searchbox-content-description {
-    font-size: 1.75rem;
-  }
-
-  .searchbox-content-decorator {
-    height: 3px;
-    margin: 1rem 0;
-  }
-
-  .searchbox-searching-bar {
-    width: 22.5rem;
-  }
-
-  .searchbox-searching-bar::placeholder {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -172,18 +148,6 @@
     justify-content: flex-start;
   }
 
-  #location-icon {
-    height: 2rem;
-  }
-
-  .location-title {
-    font-size: 0.85rem;
-  }
-
-  .current-location {
-    font-size: 1.4rem;
-  }
-
   .searchbox-content-wrapper {
     width: 70vw;
     margin-top: 6rem;
@@ -192,10 +156,6 @@
   .searchbox-content-description {
     text-align: center;
     font-size: 1.3rem;
-  }
-
-  .searchbox-content-decorator {
-    height: 2px;
   }
 
   .searchbox-searching-bar {
