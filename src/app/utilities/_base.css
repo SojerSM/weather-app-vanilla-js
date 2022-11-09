@@ -3,18 +3,23 @@
   --font-dark: rgba(0, 0, 0, 0.75);
 
   --searchbox-width: 60vh;
+  --searchbox-medium-screen-width: 80vw;
+  --searchbox-medium-screen-height: 30rem;
   --min-searchbox-width: 36rem;
 
   --databox-width: 45vh;
+  --databox-medium-screen-width: 95%;
   --min-databox-width: 27rem;
 
   --app-container-height: 60vh;
   --min-app-container-height: 36rem;
 
   --app-container-width: 105vh;
+  --app-container-medium-screen-width: 80vw;
   --min-app-container-width: 63rem;
 
   --app-container-padding: max(1.75rem, 2.5vh);
+
   --searchbox-text-color: rgba(255, 255, 255, 0.9);
   --searchbox-input-text-color: rgba(0, 0, 0, 0.5);
 }
@@ -65,4 +70,17 @@ body {
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 992px) {
+  .app-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--app-container-medium-screen-width);
+    min-width: var(--app-container-medium-screen-width);
+    height: 100%;
+    margin: 10vw 0;
+  }
 }

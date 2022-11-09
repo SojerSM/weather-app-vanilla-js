@@ -12,44 +12,11 @@
   color: var(--font-dark);
 }
 
-nav {
-  width: 100%;
-}
-
-.databox-nav-list {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: end;
-}
-
-.databox-nav-el {
-  list-style: none;
-  margin: 0 0 0 1rem;
-}
-
-a,
-a:hover,
-a:active,
-a:visited {
-  text-decoration: none;
-  font-size: max(1rem, 2vh);
-}
-
-a {
-  color: var(--font-dark);
-  font-weight: bolder;
-}
-
-a:hover {
-  color: black;
-}
-
 .databox-title-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 1.25rem 0 1rem 0;
+  margin: 0.5rem 0 1rem 0;
 }
 
 .databox-title {
@@ -182,4 +149,34 @@ a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+@media (max-width: 992px) {
+  .app-wrapper-databox {
+    width: var(--databox-medium-screen-width);
+  }
+
+  .databox-title {
+    font-size: 2.5rem;
+  }
+
+  .databox-title-time {
+    font-size: 1.5rem;
+  }
+
+  .databox-content-detailed > p {
+    font-size: 1.25rem;
+  }
+
+  .databox-future-title {
+    font-size: 1.75rem;
+  }
+
+  .future-element-date {
+    font-size: 1.1rem;
+  }
+
+  .future-element-temp {
+    font-size: 1.4rem;
+  }
 }

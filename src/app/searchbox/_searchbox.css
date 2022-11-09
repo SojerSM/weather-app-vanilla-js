@@ -105,3 +105,45 @@
   color: var(--searchbox-input-text-color);
   font-size: 1.25rem;
 }
+
+@media (max-width: 992px) {
+  .app-wrapper-searchbox {
+    width: var(--searchbox-medium-screen-width);
+    min-width: var(--searchbox-medium-screen-width);
+    height: var(--searchbox-medium-screen-height);
+  }
+
+  .app-title {
+    font-size: 2.25rem;
+    margin-left: 0;
+  }
+
+  #location-icon {
+    height: 2rem;
+  }
+
+  .location-title {
+    font-size: 1rem;
+  }
+
+  .current-location {
+    font-size: 1.6rem;
+  }
+
+  .searchbox-content-description {
+    font-size: 1.75rem;
+  }
+
+  .searchbox-content-decorator {
+    height: 3px;
+    margin: 1rem 0;
+  }
+
+  .searchbox-searching-bar {
+    width: 22.5rem;
+  }
+
+  .searchbox-searching-bar::placeholder {
+    font-size: 2rem;
+  }
+}
