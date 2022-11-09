@@ -150,33 +150,3 @@
   flex-direction: row;
   align-items: center;
 }
-
-@media (max-width: 992px) {
-  .app-wrapper-databox {
-    width: var(--databox-medium-screen-width);
-  }
-
-  .databox-title {
-    font-size: 2.5rem;
-  }
-
-  .databox-title-time {
-    font-size: 1.5rem;
-  }
-
-  .databox-content-detailed > p {
-    font-size: 1.25rem;
-  }
-
-  .databox-future-title {
-    font-size: 1.75rem;
-  }
-
-  .future-element-date {
-    font-size: 1.1rem;
-  }
-
-  .future-element-temp {
-    font-size: 1.4rem;
-  }
-}

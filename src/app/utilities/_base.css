@@ -4,11 +4,14 @@
 
   --searchbox-width: 60vh;
   --searchbox-medium-screen-width: 80vw;
+  --searchbox-small-screen-width: 90vw;
   --searchbox-medium-screen-height: 30rem;
+  --searchbox-small-screen-height: 28rem;
   --min-searchbox-width: 36rem;
 
   --databox-width: 45vh;
   --databox-medium-screen-width: 95%;
+  --databox-small-screen-width: 90vw;
   --min-databox-width: 27rem;
 
   --app-container-height: 60vh;
@@ -16,6 +19,8 @@
 
   --app-container-width: 105vh;
   --app-container-medium-screen-width: 80vw;
+  --app-container-small-screen-width: 90vw;
+
   --min-app-container-width: 63rem;
 
   --app-container-padding: max(1.75rem, 2.5vh);
@@ -72,7 +77,7 @@ body {
   display: none;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .app-container {
     flex-direction: column;
     justify-content: center;
@@ -82,5 +87,18 @@ body {
     min-width: var(--app-container-medium-screen-width);
     height: 100%;
     margin: 10vw 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--app-container-small-screen-width);
+    min-width: var(--app-container-small-screen-width);
+    height: 100%;
+    margin: 5vw 0;
   }
 }
