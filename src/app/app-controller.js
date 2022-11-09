@@ -1,5 +1,5 @@
 import * as model from './app-model';
-import { dateBuilder, getCurrTime } from './utilities/helpers';
+import { dateBuilder, getCurrTime, getRandomNumber } from './utilities/helpers';
 import searchboxView from './searchbox/searchbox-view.js';
 import databoxView from './databox/databox-view';
 import spinnerView from './spinner/spinnerView';
